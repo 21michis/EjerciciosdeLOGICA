@@ -1,0 +1,39 @@
+//5. Formularios: Escribe un programa que valide que un formulario tiene todos
+//sus campos llenos antes de enviarlo.
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Formulario</title>
+</head>
+<body>
+    <form id="miFormulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje"></textarea><br><br>
+        
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        const formulario = document.getElementById("miFormulario");
+
+        formulario.addEventListener("submit", function(event) {
+            const nombre = document.getElementById("nombre").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mensaje = document.getElementById("mensaje").value.trim();
+            if (nombre === "" || email === "" || mensaje === "") {
+                event.preventDefault();
+                alert("Por favor, llena todos los campos.");
+            }
+        });
+    </script>
+</body>
+</html>
